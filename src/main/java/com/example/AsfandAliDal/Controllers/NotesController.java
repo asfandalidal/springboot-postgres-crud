@@ -37,10 +37,9 @@ public class NotesController {
     public Notes getUserById(@PathVariable Long id) {
         return notesService.getNoteById(id);
     }
-
-    @PutMapping("/{id}")
-    public Notes updateUser(@PathVariable Long id, @RequestBody Notes note) {
-        Notes existingUser = notesService.getNoteById(id);
+    @PutMapping
+    public Notes updateUser(@RequestBody Notes note) {
+        Notes existingUser = notesService.getNoteById(note.getId()); // Assuming getId() method exists in the Notes class
         if (existingUser != null) {
             existingUser.setTitle(note.getTitle());
             existingUser.setDescription(note.getDescription());
@@ -49,6 +48,7 @@ public class NotesController {
             return null;
         }
     }
+
 
 
 }
