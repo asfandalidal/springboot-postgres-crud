@@ -28,7 +28,7 @@ public class NotesController {
     }
 
     @GetMapping
-    public List<Notes> getAllNotes(@RequestBody Notes notes)
+    public List<Notes> getAllNotes()
     {
         return  notesService.getAllNotes();
     }
